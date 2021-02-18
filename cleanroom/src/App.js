@@ -1,4 +1,5 @@
 import React from "react";
+import Login from "./Components/login";
 
 
 import {
@@ -18,18 +19,20 @@ function App() {
 
   return (
     <Router>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/topics">Topics</Link>
-          </li>
-        </ul>
+      <div Class="view">
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/topics">Topics</Link>
+            </li>
+          </ul>
+        </nav>
 
         <Switch>
           <Route path="/about">
@@ -40,6 +43,7 @@ function App() {
           </Route>
           <Route path="/">
             <Home />
+            <Login/>
           </Route>
         </Switch>
       </div>
