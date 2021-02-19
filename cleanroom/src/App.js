@@ -1,5 +1,10 @@
 import React from "react";
 import Login from "./Components/login";
+const db = require("../database/cleanroom_database")
+
+db.getConnection(function(err, connection) {
+  // here u can run queries
+})
 
 
 import {
