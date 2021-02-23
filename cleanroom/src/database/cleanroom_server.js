@@ -2,6 +2,9 @@ const mysql = require('mysql');
 const express = require("express")
 const app = express()
 
+// https://www.youtube.com/watch?v=TNhaISOUy6Q&ab_channel=Fireship
+// https://forum.freecodecamp.org/t/react-how-to-fetch-data-from-express-without-using-router/401486
+
 var connection = mysql.createConnection({
   host     : '127.0.0.1',
   user     : 'root',
