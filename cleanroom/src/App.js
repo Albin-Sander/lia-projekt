@@ -1,12 +1,6 @@
 import React from "react";
 import Login from "./Components/login";
-const db = require("../database/cleanroom_database")
-
-db.getConnection(function(err, connection) {
-  // here u can run queries
-})
-
-
+import './App.sass';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,9 +10,19 @@ import {
   useParams
 } from "react-router-dom";
 
-import './App.sass';
 
 
+/*db.getConnection(function(err, connection) {
+  if (err) {
+    throw console.log("Error when establishing a connection " + err)
+  }
+  // here u can run queries
+  let sql = "CREATE TABLE rooms (Room_id INT NOT NULL UNIQUE AUTO_INCREMENT, Room_nr INT NOT NULL UNIQUE, Room_size VARCHAR(1) NOT NULL, Room_booked INT NOT NULL, Priority_nr INT, Room_ready INT, Room_ready_time DATETIME, Room_start_time DATETIME, Cleaner_reponsible VARCHAR(45) UNIQUE, PRIMARY KEY (Room_id))";
+  connection.query(sql, function(err, result) {
+    if (err) throw console.log('Error while creating table ' + err)
+    console.log('Table "rooms" created')
+  })
+})*/
 
 function App() {
 
