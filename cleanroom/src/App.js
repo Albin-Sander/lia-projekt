@@ -12,16 +12,29 @@ import {
 
 import './App.sass';
 import Nav from './Components/nav'
+import RoomView from './Components/room-view'
 
 
 
 function App() {
 
   return (
-    <div>
+    <Router>
       <Nav/>
-    </div>
+    <Switch>
+          <Route path="/rooms">
+            <RoomView/>
+          </Route>
+          <Route path="/topics">
+            <Nav/>
+          </Route>
+          <Route path="/">
+            <RoomView/>
+          </Route>
+        </Switch>
+        </Router>
   )
+
 }
 
 

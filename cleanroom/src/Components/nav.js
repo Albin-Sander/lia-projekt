@@ -1,5 +1,6 @@
 import React from 'react'
-
+import RoomView from './room-view'
+ 
 import {
     BrowserRouter as Router,
     Switch,
@@ -29,45 +30,36 @@ export default function nav() {
   
 <nav>
     <Router>
-      <div>
+      
       <ul class="list-reset md:flex md:items-center">
       <li class="md:ml-4">
             <Link class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" to="/">Home</Link>
+            
           </li>
           <li class="md:ml-4">
-            <Link class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" to="/about">About</Link>
+            <Link class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" to="/rooms">Rooms</Link>
           </li>
           <li class="md:ml-4">
             <Link class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" to="/topics">Topics</Link>
           </li>
         </ul>
 
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/topics">
-            <Topics />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
+        
+      
     </Router>
     </nav>
     </header>
-    )
+        )
+        function Home() {
+            return <h2>Hello</h2>;
+          }
+          
+          function About() {
+            return <h2>About</h2>;
+          }
+          
+          function Topics() {
+            return <h2>Users</h2>;
+          }
+        }
 
-    function Home() {
-        return <h2>Home</h2>;
-      }
-      
-      function About() {
-        return <h2>About</h2>;
-      }
-      
-      function Topics() {
-        return <h2>Users</h2>;
-      }
-}
