@@ -1,8 +1,9 @@
 const mysql = require('mysql');
 const connection = mysql.createConnection({
-    host: "localhost",
+    host: "127.0.0.1",
     user: "root",
-    password: "admin"
+    password: "admin",
+    port: "3306"
 });
 
 connection.connect((err) => {
@@ -14,4 +15,3 @@ connection.query("CREATE DATABASE dummy_db", function (err, result) {
     if (err) throw err;
     console.log("Database created!");
 });
-

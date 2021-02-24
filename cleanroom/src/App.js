@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-import Login from "./Components/login";
+import React, { useEffect, useState } from 'react';
+import LoginComponent from "./Components/login";
 import './App.sass';
 import {
   BrowserRouter as Router,
@@ -28,34 +28,65 @@ import {
 function App() {
 
   const [] = useState(0)
+  const [ifUsername, setIfusername] = useState()
 
+  // Jag vill ha en funktion som kollar om username existerar i sessionStorage
+  // Om username existerar i sessionStorage vill jag ha en funktion som kollar om username.lengt är > 0
+
+
+  function checkIfCredentialsExist() {
+    if (sessionStorage.getItem("username")) {
+      // send user to home screen
+      console.log("Returned true: username does exist")
+      return setIfusername(true)
+    }
+    else {
+      // send user to login screen
+
+      //let credentials = {userId: 1, username: "Bob", password: "secret", position: "reception"}
+      sessionStorage.setItem("username", "")
+      return console.log("Returned false: username does not exist ")
+    }
+  }
+  
+  useEffect(() => {
+    checkIfCredentialsExist()
+  })
+
+  useEffect( async () => {
+        const URL ="http://localhost:5000/";
+  
+        let response = await fetch(URL, {method: "GET"});
+        let data = response.json();
+        return console.log(data)
+  })
+  
   return (
     <Router>
-      <div Class="view">
+      <div className="view">
         <nav>
           <ul>
             <li>
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/login">Login</Link>
             </li>
             <li>
-              <Link to="/topics">Topics</Link>
+              <Link to="/rooms">Rooms</Link>
             </li>
           </ul>
         </nav>
 
         <Switch>
-          <Route path="/about">
-            <About />
+          <Route path="/login">
+            <LoginComponent    />
           </Route>
-          <Route path="/topics">
-            <Topics />
+          <Route path="/rooms">
+            <Rooms />
           </Route>
           <Route path="/">
             <Home />
-            <Login/>
           </Route>
         </Switch>
       </div>
@@ -71,8 +102,8 @@ function About() {
   return <h2>About</h2>;
 }
 
-function Topics() {
-  return <h2>Users</h2>;
+function Rooms() {
+  return <h2>Rooms</h2>;
 }
 
 export default App;
