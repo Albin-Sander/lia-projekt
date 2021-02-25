@@ -10,7 +10,8 @@ import {
   useParams
 } from "react-router-dom";
 
-import './App.sass';
+
+import hello from './css/App.sass'
 import Nav from './Components/nav'
 import RoomView from './Components/room-view'
 

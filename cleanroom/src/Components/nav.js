@@ -12,11 +12,11 @@ import {
 
 export default function nav() {
     return (
-        <header class="border-b md:flex md:items-center md:justify-between p-4 pb-0 shadow-lg md:pb-4">
+        <header class="border-b md:flex md:items-center md:justify-between p-4 pb-0 shadow-lg md:pb-4 bg-indigo-600 dark:bg-gray-800">
     
     {/* Logo text starts */}
   <div class="flex items-center justify-between mb-4 md:mb-0">
-    <h1 class="leading-none text-2xl text-grey-darkest">
+    <h1 class="leading-none text-2xl text-grey-darkest dark:text-green">
       <a class="no-underline text-grey-darkest hover:text-black" href="#">
         Cleanroom
       </a>
