@@ -61,7 +61,7 @@ app.get('/', function (req, res) {
       console.log('Recreation of table present to prevent conflict')
   })
 
-  let insert_rooms = "INSERT INTO users (Room_nr, Room_size, Room_booked, Priority_nr, Room_ready) VALUES ('01', 'S', '0', '1', '0'), ('02', 'S', '0', '1', '0'), ('03', 'S', '0', '1', '0'), ('04', 'S', '0', '1', '0'), ('05', 'S', '0', '1', '0'), ('06', 'S', '0', '1', '0')"
+  let insert_rooms = "INSERT INTO rooms (Room_nr, Room_size, Room_booked, Priority_nr, Room_ready) VALUES ('01', 'S', '0', '1', '0'), ('02', 'S', '0', '1', '0'), ('03', 'M', '0', '1', '0'), ('04', 'M', '0', '1', '0'), ('05', 'M', '0', '1', '0'), ('06', 'L', '0', '1', '0')"
   connection.query(insert_rooms, function(err, result) {
     if (err) throw err
     console.log('Dummy data was inserted into table "rooms"')
