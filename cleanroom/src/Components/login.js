@@ -47,7 +47,6 @@ function Login() {
             ) : (
                 <button className="button-inactive"> INACTIVE </button>
             )}
-                <button onClick={() => setClicked(1)}></button>
             </footer>
         </div>
     );

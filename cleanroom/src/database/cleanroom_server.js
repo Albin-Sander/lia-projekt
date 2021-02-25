@@ -39,6 +39,13 @@ app.get('/', function (req, res) {
     console.log('Recreation of table present to prevent conflict')
   })
 
+  let insert_users = "INSERT INTO users (User_name, User_phone, User_occupation) VALUES ('Carl Hanssen', '00100100', 'Receptionist'), ('Fredrick Rogers', '11111111', 'Housekeeper'), ('Sophia Mansen', '22222222', 'Housekeeper'), ('Gloria Borg', '33333333', 'Housekeeper')"
+  connection.query(insert_users, function(err, result) {
+    if (err) throw err
+    console.log('Dummy data was inserted into table "users"')
+    console.log('-------------')
+  })
+
   // ROOMS TABLE
   let drop_rooms = "DROP TABLE rooms"
     connection.query(drop_rooms, function(err, result) {
@@ -52,6 +59,13 @@ app.get('/', function (req, res) {
       console.log('Table "rooms" created')
       console.log('-------------')
       console.log('Recreation of table present to prevent conflict')
+  })
+
+  let insert_rooms = "INSERT INTO users (Room_nr, Room_size, Room_booked, Priority_nr, Room_ready) VALUES ('01', 'S', '0', '1', '0'), ('02', 'S', '0', '1', '0'), ('03', 'S', '0', '1', '0'), ('04', 'S', '0', '1', '0'), ('05', 'S', '0', '1', '0'), ('06', 'S', '0', '1', '0')"
+  connection.query(insert_rooms, function(err, result) {
+    if (err) throw err
+    console.log('Dummy data was inserted into table "rooms"')
+    console.log('-------------')
   })
 
   res.send('hello world')
