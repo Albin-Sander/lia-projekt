@@ -12,7 +12,7 @@ import {
 } from "react-router-dom";
 
 
-import hello from './css/App.sass'
+
 import Nav from './Components/nav'
 import RoomView from './Components/room-view'
 
