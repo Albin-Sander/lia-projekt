@@ -68,12 +68,25 @@ app.get('/', function (req, res) {
     console.log('-------------')
   })
 
-  res.send('hello world')
+  return
 });
 
-app.post('/validation', async function (req, res) {
+app.get('/validation', async function (req, res) {
   const user = await req.query.param;
-  console.log(user)
+  $result = connection.query("SELECT * FROM users WHERE User_name = '"+user+"'", function(err, result) {
+    if (err) {
+      let data = 0
+      return data
+    }
+      console.log('I think it worked... ')
+      console.log(result[0].User_id)
+      let data = result
+
+      res.send(data)
+      return result
+      // row not found, do stuff...
+     // do other stuff...
+  })
 })
 
 

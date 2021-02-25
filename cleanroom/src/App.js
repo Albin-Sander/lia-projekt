@@ -54,11 +54,9 @@ function App() {
   })
 
   useEffect( async () => {
-        const URL ="http://localhost:5000/";
-  
-        let response = await fetch(URL, {method: "GET"});
-        let data = response.json();
-        return console.log(data)
+    const URL ="http://localhost:5000/";
+    await fetch(URL, { method: "GET", mode: "no-cors"});
+    return 
   })
   
   return (

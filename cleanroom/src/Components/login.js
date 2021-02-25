@@ -13,9 +13,12 @@ function Login() {
         const URL = "http://localhost:5000/validation?param=";
         const PARAM = userName
 
-        let response = await fetch(URL + PARAM, {method: "POST"});
-        let data = response.json();
-        return console.log(data)
+        let response = await fetch(URL + PARAM, {method: "GET", mode: "cors", headers: {
+            'Content-Type': 'application/json'
+        }});
+        let data = await response.json();
+        console.log(data)
+        return 
     }
 
     /*useEffect(() => {
