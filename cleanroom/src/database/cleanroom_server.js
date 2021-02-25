@@ -71,8 +71,9 @@ app.get('/', function (req, res) {
   res.send('hello world')
 });
 
-app.post('/post', function (req, res) {
-
+app.post('/validation', async function (req, res) {
+  const user = await req.query.param;
+  console.log(user)
 })
 
 

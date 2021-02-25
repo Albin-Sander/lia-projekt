@@ -6,16 +6,16 @@ function Login() {
     const [clicked, setClicked] = useState(0)
     const [userName, setUsername] = useState("")
     const [userPassword, setUserpassword] = useState("")
-    /*constructor() {
-        constructor(props); {
-            super(props);
-            this.state = {};
-        }*/
+    const [isSending, setIsSending] = useState(false)
+  
 
-    function button() {
-        if(userName.length > 0 && userPassword > 0) {
+    async function checkUser() {
+        const URL = "http://localhost:5000/validation?param=";
+        const PARAM = userName
 
-        }
+        let response = await fetch(URL + PARAM, {method: "POST"});
+        let data = response.json();
+        return console.log(data)
     }
 
     /*useEffect(() => {
@@ -43,7 +43,7 @@ function Login() {
             </main>
             <footer className="login-foter">
             {(userName.length > 0) && (userPassword.length > 0) ? (
-                <button className="button-active"> ACTIVE </button>
+                <button className="button-active" onClick={checkUser}> ACTIVE </button>
             ) : (
                 <button className="button-inactive"> INACTIVE </button>
             )}
