@@ -1,17 +1,19 @@
 # lia-projekt
 
-# Getting Started with Create React App
+# To start the server
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+First make sure that you have both the node.js and mysql path variables.
+Then you need to start the server locally on your machine.
+In your terminal navigate to the "database" directorty, which can be found inside the "src" folder, and then run these commands
+ - node create_database.js
+ - node create_tables.js
 
-## Available Scripts
+You should now have a mysql database called "dummy_db" with 2 tables named "rooms" and "users" respectively.
+If you already have a database called "dummy_db" you can either drop that database or rename the database in the mysql query.
 
-In the project directory, you can run:
 
-### `npm start`
+## Functionality
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To make full use of the app you need to login with any of the saved users and their respective login credentials.
+You can find these credentials in the "create_tables.js" file, look for "User_name" and "User_password"
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
