@@ -53,13 +53,19 @@ function App() {
           <Route exact path="/login">
             <LoginComponent callBack={ifUsername}/>
           </Route>
+
+          <Route exact path="/logout">
+            <LoginComponent callBack={ifUsername}/>
+          </Route>
+
           <Route exact path="/rooms">
             <Rooms />
-            
           </Route>
+
           <Route exact path="/roomview1">
             <RoomView1/>
           </Route>
+          
           <Route exact path="/roomview2">
             <RoomView2/>
           </Route>
