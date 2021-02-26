@@ -53,11 +53,11 @@ export default function nav() {
             </li>
 
             {(!sessionStorage.getItem("username")) ? (
-              <li classname="md:ml-4">
-              <Link to="/login" classname="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">Login</Link>
+              <li className="md:ml-4">
+              <Link to="/login" className="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">Login</Link>
               </li>
             ) : (
-              <li clasName="md:ml-4">
+              <li className="md:ml-4">
               <Link to="/logout" className="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">Logout</Link>
               </li>
             )}

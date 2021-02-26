@@ -7,6 +7,7 @@ function LoginView(props) {
     const [clicked, setClicked] = useState(0)
     const [userName, setUsername] = useState("")
     const [userPassword, setUserpassword] = useState("")
+    const [wrongCredentials, setWrongcredentials] = useState(false)
   
     async function checkUser() {
         const URL = "http://localhost:5000/validation";
@@ -20,7 +21,10 @@ function LoginView(props) {
          }) });
         let data = await response.json();
         if (data.status == 200) {
+            setWrongcredentials(false)
             sessionStorage.setItem("username", userName)
+        } else {
+            setWrongcredentials(true)
         }
         console.log(data)
        
@@ -41,6 +45,9 @@ function LoginView(props) {
                     <div className="inputField-container">
                         <label> Password </label>
                         <input type="text" onChange={event => setUserpassword(event.target.value)}></input>
+                        {(wrongCredentials) && (userName.length > 0) && (userPassword.length > 0) ? (
+                            <label className="wrong-credentials"> Wrong credentials </label>
+                        ) : ( <label className="hide">  </label>)}
                     </div>
                 </main>
                 <footer className="login-foter">

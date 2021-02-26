@@ -63,11 +63,15 @@ function App() {
           </Route>
 
           <Route exact path="/logout">
-            <LoginComponent callBack={ifUsername}/>
+            <Logout callBack={setIfusername}/>
           </Route>
 
           <Route exact path="/rooms">
-            <Rooms />
+            {(!sessionStorage.getItem("username")) ? (
+              <Redirect to ="/login" />
+            ) : (
+              <Rooms />
+            )}
           </Route>
 
           <Route exact path="/roomview1">
