@@ -14,7 +14,9 @@ import {
 
 
 import Nav from './Components/nav'
-import RoomView from './Components/room-view'
+import RoomView1 from './Components/room-view'
+import RoomView2 from './Components/room-view2'
+import Rooms from './Components/rooms'
 
 
 
@@ -74,8 +76,14 @@ function App() {
             <LoginComponent/>
           </Route>
           <Route exact path="/rooms">
-            <RoomView />
+            <Rooms />
             
+          </Route>
+          <Route exact path="/roomview1">
+            <RoomView1/>
+          </Route>
+          <Route exact path="/roomview2">
+            <RoomView2/>
           </Route>
           
         </Switch>
