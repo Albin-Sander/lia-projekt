@@ -2,6 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import  { Redirect } from 'react-router-dom'
 import LoginComponent from "./Components/login-component";
+import Nav from './Components/nav'
+import RoomView1 from './Components/room-view'
+import RoomView2 from './Components/room-view2'
+import Rooms from './Components/rooms'
 import './App.sass';
 import {
   BrowserRouter as Router,
@@ -63,6 +67,7 @@ function App() {
         </Switch>
         </Router>
   )
+}
 
 function Home() {
   if (sessionStorage.getItem("username")){
@@ -84,4 +89,4 @@ function Logout(props) {
   return <Redirect to ="/" />
 }
 
-export default App
+export default App;
