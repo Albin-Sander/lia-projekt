@@ -84,5 +84,4 @@ function Logout(props) {
   return <Redirect to ="/" />
 }
 
-export default App; 
-}
+export default App
