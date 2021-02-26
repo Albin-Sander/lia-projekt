@@ -51,7 +51,7 @@ function App() {
       <Nav/>
     <Switch>
           <Route exact path="/login">
-            <LoginComponent/>
+            <LoginComponent callBack={ifUsername}/>
           </Route>
           <Route exact path="/rooms">
             <Rooms />
