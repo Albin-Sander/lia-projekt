@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import room1 from '../images/room1.jpg';
+import room2 from '../images/room2.jpg';
 import Checkbox from '@material-ui/core/Checkbox';
 import { withStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -9,7 +9,7 @@ import { green, white } from '@material-ui/core/colors';
 import '../css/room-view.sass'
 
 
-export default function RoomView() {
+export default function RoomView2() {
 
     const [checked, setChecked] = React.useState(true);
     let roomAvailable = "This room is available for cleaning"
@@ -31,7 +31,7 @@ export default function RoomView() {
     return (
         <div className="room-wrapper">
            
-            <img src={room1} />
+            <img src={room2} />
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
                 Button
             </button>

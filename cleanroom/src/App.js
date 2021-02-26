@@ -44,50 +44,25 @@ function App() {
   
   return (
     <Router>
-      <div className="view">
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            {(!sessionStorage.getItem("username")) ? (
-              <li>
-              <Link to="/login">Login</Link>
-              </li>
-            ) : (
-              <li>
-              <Link to="/logout">Logout</Link>
-              </li>
-            )}
-
-            <li>
-              <Link to="/rooms">Rooms</Link>
-            </li>
-          </ul>
-        </nav>
-
-        <Switch>
-          <Route path="/login">
-            {(!sessionStorage.getItem("username")) ? (
-              <LoginComponent callBack={setIfusername}/>
-            ) : (
-              <Redirect to ="/" />
-            )}
+      <Nav/>
+    <Switch>
+          <Route exact path="/login">
+            <LoginComponent/>
           </Route>
-          <Route path="/logout">
-            <Logout callBack={setIfusername}/>
-          </Route>
-          <Route path="/rooms">
+          <Route exact path="/rooms">
             <Rooms />
+            
           </Route>
-          <Route path="/">
-            <Home />
+          <Route exact path="/roomview1">
+            <RoomView1/>
           </Route>
+          <Route exact path="/roomview2">
+            <RoomView2/>
+          </Route>
+          
         </Switch>
-      </div>
-    </Router>
+        </Router>
   )
-}
 
 function Home() {
   if (sessionStorage.getItem("username")){
@@ -96,13 +71,7 @@ function Home() {
   return <h2>You are not logged in</h2>;
 }
 
-function About() {
-  return <h2>About</h2>;
-}
 
-function Rooms() {
-  return <h2>Rooms</h2>;
-}
 
 function Logout(props) {
   console.log("Logout")
@@ -115,4 +84,5 @@ function Logout(props) {
   return <Redirect to ="/" />
 }
 
-export default App;
+export default App; 
+}
