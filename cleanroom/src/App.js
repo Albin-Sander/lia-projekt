@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
-import LoginComponent from "./Components/login";
+import  { Redirect } from 'react-router-dom'
+import LoginComponent from "./Components/login-component";
 import './App.sass';
 import {
   BrowserRouter as Router,
@@ -10,20 +11,6 @@ import {
   useRouteMatch,
   useParams
 } from "react-router-dom";
-
-
-
-/*db.getConnection(function(err, connection) {
-  if (err) {
-    throw console.log("Error when establishing a connection " + err)
-  }
-  // here u can run queries
-  let sql = "CREATE TABLE rooms (Room_id INT NOT NULL UNIQUE AUTO_INCREMENT, Room_nr INT NOT NULL UNIQUE, Room_size VARCHAR(1) NOT NULL, Room_booked INT NOT NULL, Priority_nr INT, Room_ready INT, Room_ready_time DATETIME, Room_start_time DATETIME, Cleaner_reponsible VARCHAR(45) UNIQUE, PRIMARY KEY (Room_id))";
-  connection.query(sql, function(err, result) {
-    if (err) throw console.log('Error while creating table ' + err)
-    console.log('Table "rooms" created')
-  })
-})*/
 
 function App() {
 
@@ -36,15 +23,11 @@ function App() {
 
   function checkIfCredentialsExist() {
     if (sessionStorage.getItem("username")) {
-      // send user to home screen
-      console.log("Returned true: username does exist")
-      return setIfusername(true)
+      // Create login session if the user exists
+      return 
     }
     else {
-      // send user to login screen
-
-      //let credentials = {userId: 1, username: "Bob", password: "secret", position: "reception"}
-      sessionStorage.setItem("username", "")
+      // Do not create a login session if the user did not exist
       return console.log("Returned false: username does not exist ")
     }
   }
@@ -55,7 +38,7 @@ function App() {
 
   useEffect( async () => {
     const URL ="http://localhost:5000/";
-    await fetch(URL, { method: "GET", mode: "no-cors"});
+    await fetch(URL, { method: "GET"});
     return 
   })
   
@@ -67,9 +50,16 @@ function App() {
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li>
+            {(!sessionStorage.getItem("username")) ? (
+              <li>
               <Link to="/login">Login</Link>
-            </li>
+              </li>
+            ) : (
+              <li>
+              <Link to="/logout">Logout</Link>
+              </li>
+            )}
+
             <li>
               <Link to="/rooms">Rooms</Link>
             </li>
@@ -78,7 +68,14 @@ function App() {
 
         <Switch>
           <Route path="/login">
-            <LoginComponent    />
+            {(!sessionStorage.getItem("username")) ? (
+              <LoginComponent callBack={setIfusername}/>
+            ) : (
+              <Redirect to ="/" />
+            )}
+          </Route>
+          <Route path="/logout">
+            <Logout callBack={setIfusername}/>
           </Route>
           <Route path="/rooms">
             <Rooms />
@@ -93,7 +90,10 @@ function App() {
 }
 
 function Home() {
-  return <h2>Home</h2>;
+  if (sessionStorage.getItem("username")){
+    return <h2>You are logged in</h2>
+  }
+  return <h2>You are not logged in</h2>;
 }
 
 function About() {
@@ -102,6 +102,17 @@ function About() {
 
 function Rooms() {
   return <h2>Rooms</h2>;
+}
+
+function Logout(props) {
+  console.log("Logout")
+  sessionStorage.removeItem("username");
+  if(!sessionStorage.removeItem("username")) {
+    console.log("In the if")
+    props.callBack(false)
+    return <Redirect to ="/" />
+  }
+  return <Redirect to ="/" />
 }
 
 export default App;

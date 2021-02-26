@@ -11,7 +11,9 @@ connection.connect((err) => {
     console.log('connected, YES');
 });
 
-connection.query("CREATE DATABASE dummy_db", function (err, result) {
+connection.query("CREATE DATABASE IF NOT EXISTS dummy_db", function (err, result) {
     if (err) throw err;
     console.log("Database created!");
 });
+
+connection.end()

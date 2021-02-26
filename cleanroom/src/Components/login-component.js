@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import  { Redirect } from 'react-router-dom'
-import LoginView from "../Components/login-component"
 import "./login.sass"
 import "../App.sass"
 
-function Login() {
+function LoginView(props) {
     const [clicked, setClicked] = useState(0)
     const [userName, setUsername] = useState("")
     const [userPassword, setUserpassword] = useState("")
-    const [isLogedin, setIsLogedin] = useState(false)
   
-    console.log(isLogedin)
     async function checkUser() {
         const URL = "http://localhost:5000/validation";
    
@@ -24,24 +21,15 @@ function Login() {
         let data = await response.json();
         if (data.status == 200) {
             sessionStorage.setItem("username", userName)
-            setIsLogedin(true)
         }
         console.log(data)
-        return 
+       
+        return props.callBack(true)
     }
 
-    /*useEffect(() => {
-        fetch('/time').then(res => res.json()).then(data => {
-          console.log(data);
-          setTime(data.time);
-        });
-      }, []);*/
-    
 
     return (
-        <>
-        {(!sessionStorage.getItem("username")) ? (
-            <div className="login-container">
+        <div className="login-container">
                 <header className="login-header">
                     <h2>LOGIN</h2>
                 </header>
@@ -63,12 +51,7 @@ function Login() {
                 )}
                 </footer>
             </div>
-        ) : (
-            <Redirect to ="/" />
-        )}
-        </>
-    );
-        
+    )
 }
 
-export default Login
+export default LoginView
