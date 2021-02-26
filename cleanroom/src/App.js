@@ -50,8 +50,16 @@ function App() {
     <Router>
       <Nav/>
     <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          
           <Route exact path="/login">
-            <LoginComponent callBack={ifUsername}/>
+            {(!sessionStorage.getItem("username")) ? (
+              <LoginComponent callBack={setIfusername}/>
+            ) : (
+              <Redirect to ="/" />
+            )}
           </Route>
 
           <Route exact path="/logout">
