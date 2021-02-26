@@ -26,25 +26,6 @@ export default function nav() {
             <i className="fa fa-2x fa-bars"></i>
           </a>
         </div>
-      {/* Logo text ends 
-        <li>
-              <Link to="/">Home</Link>
-            </li>
-            {(!sessionStorage.getItem("username")) ? (
-              <li>
-              <Link to="/login">Login</Link>
-              </li>
-            ) : (
-              <li>
-              <Link to="/logout">Logout</Link>
-              </li>
-            )}
-
-            <li>
-              <Link to="/rooms">Rooms</Link>
-          </li>
-
-      */}
   
         <nav>
           <ul className="list-reset md:flex md:items-center">
