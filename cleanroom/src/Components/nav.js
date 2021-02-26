@@ -13,17 +13,17 @@ import {
 
 export default function nav() {
     return (
-      <header class="border-b md:flex md:items-center md:justify-between p-4 pb-0 shadow-lg md:pb-4 bg-indigo-600 dark:bg-gray-800">
+      <header className="border-b md:flex md:items-center md:justify-between p-4 pb-0 shadow-lg md:pb-4 bg-indigo-600 dark:bg-gray-800">
           {/* Logo text starts */}
-        <div class="flex items-center justify-between mb-4 md:mb-0">
-          <h1 class="leading-none text-2xl text-grey-darkest dark:text-green">
-            <a class="no-underline text-grey-darkest hover:text-black" href="#">
+        <div className="flex items-center justify-between mb-4 md:mb-0">
+          <h1 className="leading-none text-2xl text-grey-darkest dark:text-green">
+            <a className="no-underline text-grey-darkest hover:text-black" href="#">
               Cleanroom
             </a>
           </h1>
 
-          <a class="text-black hover:text-orange md:hidden" href="#">
-            <i class="fa fa-2x fa-bars"></i>
+          <a className="text-black hover:text-orange md:hidden" href="#">
+            <i className="fa fa-2x fa-bars"></i>
           </a>
         </div>
       {/* Logo text ends 
@@ -47,23 +47,23 @@ export default function nav() {
       */}
   
         <nav>
-          <ul class="list-reset md:flex md:items-center">
-            <li class="md:ml-4">
-              <Link class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" to="/">Home</Link>
+          <ul className="list-reset md:flex md:items-center">
+            <li className="md:ml-4">
+              <Link className="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" to="/">Home</Link>
             </li>
 
             {(!sessionStorage.getItem("username")) ? (
-              <li class="md:ml-4">
-              <Link to="/login" class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">Login</Link>
+              <li classname="md:ml-4">
+              <Link to="/login" classname="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">Login</Link>
               </li>
             ) : (
-              <li class="md:ml-4">
-              <Link to="/logout" class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">Logout</Link>
+              <li clasName="md:ml-4">
+              <Link to="/logout" className="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">Logout</Link>
               </li>
             )}
-            
-            <li class="md:ml-4">
-              <Link class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" to="/rooms">Rooms</Link>
+
+            <li className="md:ml-4">
+              <Link className="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" to="/rooms">Rooms</Link>
             </li>   
           </ul>
         </nav>
