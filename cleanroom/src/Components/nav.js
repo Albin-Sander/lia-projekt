@@ -1,5 +1,6 @@
 import React from 'react'
 import RoomView from './room-view'
+import LoginComponent from './login'
  
 import {
     BrowserRouter as Router,
@@ -29,37 +30,25 @@ export default function nav() {
 {/* Logo text ends */}
   
 <nav>
-    <Router>
+    
       
       <ul class="list-reset md:flex md:items-center">
       <li class="md:ml-4">
-            <Link class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" to="/">Home</Link>
+            <Link class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" to="/login">Home</Link>
             
           </li>
           <li class="md:ml-4">
             <Link class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" to="/rooms">Rooms</Link>
           </li>
-          <li class="md:ml-4">
-            <Link class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" to="/topics">Topics</Link>
-          </li>
+          
         </ul>
 
         
       
-    </Router>
+    
     </nav>
     </header>
         )
-        function Home() {
-            return <h2>Hello</h2>;
-          }
-          
-          function About() {
-            return <h2>About</h2>;
-          }
-          
-          function Topics() {
-            return <h2>Users</h2>;
-          }
+        
         }
 

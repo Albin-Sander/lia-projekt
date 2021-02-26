@@ -70,15 +70,14 @@ function App() {
     <Router>
       <Nav/>
     <Switch>
-          <Route path="/rooms">
-            <RoomView/>
-          </Route>
-          <Route path="/Login">
+          <Route exact path="/login">
             <LoginComponent/>
           </Route>
-          <Route path="/">
-            <RoomView/>
+          <Route exact path="/rooms">
+            <RoomView />
+            
           </Route>
+          
         </Switch>
         </Router>
   )
