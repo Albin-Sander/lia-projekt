@@ -94,5 +94,25 @@ app.get('/rooms', function(req, res) {
       }
     });
 })
+
+app.post('/rooms/room', function(req, res) {
+  const sqlQuery = `SELECT * FROM rooms WHERE Room_nr='${user.user_name}'`
+  connection.query(sqlQuery, function (err, result) {
+    if (err) throw err;
+    if (result.length == 0) {
+      res.json({
+        status: 401,
+        message: "Could not get rooms"
+      })
+    } else {
+      res.json({
+        status: 200,
+        message: "Success",
+        result: result
+      })
+      return
+    }
+  });
+})
   
 app.listen(5000)
